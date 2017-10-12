@@ -1,1 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-12T12:39:31+02:00</updated><id>http://localhost:4000/</id><title type="html">Vegan Developer</title><subtitle>Dion Snoeijen</subtitle><entry><title type="html">Getting started</title><link href="http://localhost:4000/documentation/2017/10/12/getting-started.html" rel="alternate" type="text/html" title="Getting started" /><published>2017-10-12T12:00:00+02:00</published><updated>2017-10-12T12:00:00+02:00</updated><id>http://localhost:4000/documentation/2017/10/12/getting-started</id><content type="html" xml:base="http://localhost:4000/documentation/2017/10/12/getting-started.html"></content><author><name>Dion Snoeijen</name></author><summary type="html"></summary></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-12T14:33:05+02:00</updated><id>http://localhost:4000/</id><title type="html">Vegan Developer</title><subtitle>Dion Snoeijen</subtitle><entry><title type="html">Getting started</title><link href="http://localhost:4000/documentation/2017/10/12/getting-started.html" rel="alternate" type="text/html" title="Getting started" /><published>2017-10-12T12:00:00+02:00</published><updated>2017-10-12T12:00:00+02:00</updated><id>http://localhost:4000/documentation/2017/10/12/getting-started</id><content type="html" xml:base="http://localhost:4000/documentation/2017/10/12/getting-started.html">&lt;p&gt;This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.&lt;/p&gt;
+
+&lt;h1 id=&quot;step-1-create-a-symfony-application&quot;&gt;Step 1: Create a &lt;a href=&quot;http://symfony.com/download&quot; target=&quot;_blank&quot;&gt;symfony&lt;/a&gt; application.&lt;/h1&gt;
+
+&lt;p&gt;Follow the steps described on the symfony website here: &lt;a href=&quot;http://symfony.com/download&quot; target=&quot;_blank&quot;&gt;http://symfony.com/download&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After running: &lt;code class=&quot;highlighter-rouge&quot;&gt;symfony new sexyblog&lt;/code&gt; at your local dev environment we are ready to include SexyField.&lt;/p&gt;
+
+&lt;p&gt;Configure the database, and start the built in server with: &lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console server:start&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;info&quot;&gt;
+  &lt;p&gt;For a local database, you might just want to use docker.
+Hereby a simple docker-compose config that will be sufficient to get started.&lt;/p&gt;
+
+  &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# docker/docker-compose.yml&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;2&quot;&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;mysql&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mariadb&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;3306:3306&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;MYSQL_DATABASE&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sexyblog&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;S0m3FAk3PassW0rD&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;./data/mysql:/var/lib/mysql&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;step-2-add-the-sexy-field-bundle-package-to-composer&quot;&gt;Step 2: Add the sexy-field-bundle package to composer.&lt;/h1&gt;
+
+&lt;div class=&quot;info&quot;&gt;
+  &lt;p&gt;At this moment, SexyField is still in development. Therefore we have to add two configurations to composer.json
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;minimum-stability&quot;: &quot;dev&quot;,&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;prefer-stable&quot;: true,&lt;/code&gt;&lt;/p&gt;
+
+  &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;vendor/sexyblog&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;license&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;proprietary&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;project&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;minimum-stability&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;dev&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;prefer-stable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Add the sexy-field-bundle dependency to “require”.&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;tardigrades/sexy-field-bundle&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;dev-master&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Let’s use migrations for changes. Also add:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;doctrine/doctrine-migrations-bundle&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;And run composer update.&lt;/p&gt;
+
+&lt;h1 id=&quot;step-3-install-the-field-types&quot;&gt;Step 3: Install the field types&lt;/h1&gt;
+
+&lt;div class=&quot;info&quot;&gt;
+  &lt;p&gt;This will change soon. Probably the fields will be configured automatically, without the need to install them.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Execute the following command (just copy / paste):&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;FieldType&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;Choice&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;Choice &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;FieldType&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;DateTime&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;DateTimeField &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;FieldType&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;Email&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;Email &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;FieldType&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;Integer&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;Integer &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;FieldType&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;Number&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;Number &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;FieldType&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;Relationship&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;Relationship &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+bin/console sf:install-field-type Tardigrates&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;FieldType&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;RichTextArea&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;RichTextArea &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+bin/console sf:install-field-type Tardigrates&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;FieldType&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;Slug&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;Slug &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;FieldType&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;TextArea&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;TextArea &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;FieldType&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;TextInput&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;TextInput
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>Dion Snoeijen</name></author><summary type="html">This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.</summary></entry></feed>

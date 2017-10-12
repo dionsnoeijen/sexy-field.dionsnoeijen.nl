@@ -43,11 +43,16 @@ $on-laptop:        800px;
     }
 }
 
-
+div.info {
+  background: #e7fadc;
+  border: 1px solid #b5ccac;
+  padding: 10px;
+  border-radius: 4px;
+}
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "base",
-        "layout",
-        "syntax-highlighting"
+  "base",
+  "layout",
+  "syntax-highlighting"
 ;

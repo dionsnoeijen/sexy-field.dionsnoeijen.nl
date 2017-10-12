@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Getting started</title>
-  <meta name="description" content="">
+  <meta name="description" content="This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://localhost:4000/documentation/2017/10/12/getting-started.html">
@@ -64,7 +64,88 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    
+    <p>This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.</p>
+
+<h1 id="step-1-create-a-symfony-application">Step 1: Create a <a href="http://symfony.com/download" target="_blank">symfony</a> application.</h1>
+
+<p>Follow the steps described on the symfony website here: <a href="http://symfony.com/download" target="_blank">http://symfony.com/download</a>.</p>
+
+<p>After running: <code class="highlighter-rouge">symfony new sexyblog</code> at your local dev environment we are ready to include SexyField.</p>
+
+<p>Configure the database, and start the built in server with: <code class="highlighter-rouge">bin/console server:start</code></p>
+
+<div class="info">
+  <p>For a local database, you might just want to use docker.
+Hereby a simple docker-compose config that will be sufficient to get started.</p>
+
+  <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># docker/docker-compose.yml</span>
+<span class="s">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2"</span>
+
+<span class="s">services</span><span class="pi">:</span>
+  <span class="s">mysql</span><span class="pi">:</span>
+    <span class="s">image</span><span class="pi">:</span> <span class="s">mariadb</span>
+    <span class="s">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">3306:3306</span>
+    <span class="s">environment</span><span class="pi">:</span>
+      <span class="s">MYSQL_DATABASE</span><span class="pi">:</span> <span class="s">sexyblog</span>
+      <span class="s">MYSQL_ROOT_PASSWORD</span><span class="pi">:</span> <span class="s">S0m3FAk3PassW0rD</span>
+    <span class="s">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./data/mysql:/var/lib/mysql</span>
+</code></pre>
+  </div>
+</div>
+
+<h1 id="step-2-add-the-sexy-field-bundle-package-to-composer">Step 2: Add the sexy-field-bundle package to composer.</h1>
+
+<div class="info">
+  <p>At this moment, SexyField is still in development. Therefore we have to add two configurations to composer.json
+<code class="highlighter-rouge">"minimum-stability": "dev",</code> and <code class="highlighter-rouge">"prefer-stable": true,</code></p>
+
+  <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendor/sexyblog"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proprietary"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"minimum-stability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prefer-stable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span></code></pre>
+  </div>
+</div>
+
+<p>Add the sexy-field-bundle dependency to “require”.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"tardigrades/sexy-field-bundle"</span><span class="err">:</span><span class="w"> </span><span class="s2">"dev-master"</span><span class="err">,</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Let’s use migrations for changes. Also add:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"doctrine/doctrine-migrations-bundle"</span><span class="err">:</span><span class="w"> </span><span class="s2">"^1.2.1"</span><span class="err">,</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>And run composer update.</p>
+
+<h1 id="step-3-install-the-field-types">Step 3: Install the field types</h1>
+
+<div class="info">
+  <p>This will change soon. Probably the fields will be configured automatically, without the need to install them.</p>
+</div>
+
+<p>Execute the following command (just copy / paste):</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType<span class="se">\\</span>Choice<span class="se">\\</span>Choice <span class="se">\</span>
+bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType<span class="se">\\</span>DateTime<span class="se">\\</span>DateTimeField <span class="se">\</span>
+bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType<span class="se">\\</span>Email<span class="se">\\</span>Email <span class="se">\</span>
+bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType<span class="se">\\</span>Integer<span class="se">\\</span>Integer <span class="se">\</span>
+bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType<span class="se">\\</span>Number<span class="se">\\</span>Number <span class="se">\</span>
+bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType<span class="se">\\</span>Relationship<span class="se">\\</span>Relationship <span class="se">\</span>
+bin/console sf:install-field-type Tardigrates<span class="se">\\</span>FieldType<span class="se">\\</span>RichTextArea<span class="se">\\</span>RichTextArea <span class="se">\</span>
+bin/console sf:install-field-type Tardigrates<span class="se">\\</span>FieldType<span class="se">\\</span>Slug<span class="se">\\</span>Slug <span class="se">\</span>
+bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType<span class="se">\\</span>TextArea<span class="se">\\</span>TextArea <span class="se">\</span>
+bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType<span class="se">\\</span>TextInput<span class="se">\\</span>TextInput
+</code></pre>
+</div>
+
 
   </div>
 
