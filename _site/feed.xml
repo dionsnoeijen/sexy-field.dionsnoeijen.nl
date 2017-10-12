@@ -1,14 +1,190 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-10-12T10:01:57+02:00</updated><id>/</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="/jekyll/update/2017/10/12/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-10-12T09:58:16+02:00</published><updated>2017-10-12T09:58:16+02:00</updated><id>/jekyll/update/2017/10/12/welcome-to-jekyll</id><content type="html" xml:base="/jekyll/update/2017/10/12/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-12T11:03:34+02:00</updated><id>http://localhost:4000/</id><title type="html">Vegan Developer</title><subtitle>Dion Snoeijen</subtitle><entry><title type="html">Flow based user interface for complex structures (part 2)</title><link href="http://localhost:4000/ui/dev/2016/09/14/flow-based-user-interface-for-complex-structures-part-2.html" rel="alternate" type="text/html" title="Flow based user interface for complex structures (part 2)" /><published>2016-09-14T16:12:00+02:00</published><updated>2016-09-14T16:12:00+02:00</updated><id>http://localhost:4000/ui/dev/2016/09/14/flow-based-user-interface-for-complex-structures-part-2</id><content type="html" xml:base="http://localhost:4000/ui/dev/2016/09/14/flow-based-user-interface-for-complex-structures-part-2.html">&lt;p&gt;&lt;a href=&quot;https://dionsnoeijen.github.io/ui/dev/2016/08/11/flow-based-user-interface-for-complex-structures-part-1.html&quot; title=&quot;Part 1&quot;&gt;Part 1&lt;/a&gt; was the introduction to this article. Read it if you like a little more background on the subject. Otherwise just skip it and dive in head first.&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;To explore this idea I have for a node or flow based ui for web development I need to define from where I’m reasoning.&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;First, I speak of web development, but my main goal is to create a user interface that enables a simplified way of creating a website that’s content managed. From there on I see a lot of other possibilities but for now I stick to the plan.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;Second, this is a concept and the fictional website is intentionally simplified.&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;Last, I try to create a user interface that’s simple, but not too simple. I favor flexibility over simplicity.&lt;/p&gt;
+
+&lt;p&gt;The fictional website I’m aiming to build is nothing more than website containing products, showing a list of products and a product detail page. Those products are managed through a backend that’s behind a user login page. Containing a product list for visitors and a way to add and edit products for content editors. To spice things up a little it’s a multi lingual setup containing only two languages namely dutch and english. Adhering to my last point, the product has only the most essential fields. There is no need for more because I only want to convey the idea.&lt;/p&gt;
+
+&lt;p&gt;First, I imagine, I would want to model the product. The product is mainly made up of fields. Those fields are more than a simple column in the database. In fact they are much more like a field as seen in some content management systems like ExpressionEngine or Craft where a field is a way of defining much more than just a table column. It also provides all the ui elements needed for the content editors. The content’s of the field can easily be used inside a template. It depends on the field type what it can provide.&lt;/p&gt;
+
+&lt;p&gt;Let’s start by creating a breadboard on the grid.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/breadboard-product-1.PNG&quot; alt=&quot;Breadboard product model&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub&quot;&gt;The breadbox should be resizable at any time&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Surely I would like to have a name for this breadboard, and, I think I need types for a breadboard in certain cases. I will get back to that later on. But this is a “model” type breadboard.&lt;/p&gt;
+
+&lt;p&gt;I think those type of settings should be available by double clicking or tapping it. It would open a dialogue box that contains fields for the name and type.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/breadboard-dialog.PNG&quot; alt=&quot;Breadboard model type dialogue&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For this product we probably need a name, let’s start by adding a input text field. Again, this field would need some settings. Double clicking on the field gives a dialogue belonging to this specific input field. A name and a handle would be essential. Maybe an optional default text. The field on the breadbox shows it’s label by default. I think there should be one block reserved for the icon belonging to the field. To the left we would have a menu containing all elements you can stick to the breadboard or onto the grid itself. More on the menu later on.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/breadboard-product-2.PNG&quot; alt=&quot;Breadboard with input text attached&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To the left we have an input circle available. It’s meant to accept connecting wires. To the right we have an output circle available, you can drag a connection wire from it.&lt;/p&gt;
+
+&lt;p&gt;This field on itself does not contain enough functionality on it’s own. I need extra functionality to make this work in a real world context. For starters, I would like it to be a required field. But I also want the input length limited and from this field I would like to generate an anchor or slug that I can use later on. (If the name is “Super product” the anchor would be &lt;code class=&quot;highlighter-rouge&quot;&gt;super-product&lt;/code&gt;) At this point the breadboard comes in handy. Instead of already creating wires I can simply stick modifiers to the board enabling those simple modifications for this field.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/breadboard-product-3.PNG&quot; alt=&quot;Breadboard with modified input text output&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So, instead of having the output of the field connected to the edge of the breadboard I sized it down to the middle. First I connected a required modifier. Then I have a length modifier and that output is on the right edge of the breadboard making an output circle on the breadboard or node level. Below I have an anchor modifier. The output from the length modifier is also fed into the anchor modifier that’s bringing it’s own output to the right edge of the node. Now we have a defined a required input field, limited characters and we defined an anchor based on this field.&lt;/p&gt;
+
+&lt;p&gt;The next field is a description field. In this case I imagine a rich text editor type of field, also limited but not required.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/breadboard-product-4.PNG&quot; alt=&quot;Added the description field to the breadboard&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The product also requires a price. I would like to min / max the price input, just because I can. And this field is required. Also, I feel I want output in different currencies because we are creating a multi lingual setup. The required modifier provides output, we can make connectors on the breadboard splitting up the output to other modifiers. In this case it goed directly to the euro output and I route it to a math modifier so I can make up for the currency difference and direct it to the dollar output.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/breadboard-product-5.PNG&quot; alt=&quot;Added the price field to the breadboard&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub&quot;&gt;The MM modifier is for limiting the numeric input to only contain a value between 0 and 100&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Now I just add two date fields, containing the creation and update date. Both are required. On creation both are set to the creation date. The last modifier is an output modifier. Later on it will become clear what it’s used for.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/breadboard-product-6.PNG&quot; alt=&quot;Added the creation and update date fields&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s start by using this model for some basic crud functionality for the content editors. We need a list of products and a way to add a new product. Since I have two languages a tabbed interface might do just fine. But I need a way to have the same fields two times in my layout. Actually I need a way to make groups of fields so I can differentiate between them while creating the template for the create / edit page. So I would create two new breadboards of the same size and add a grouping modifier to it. This modifier accepts input from fields, duplicating the field setup.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/the-language-field-groups.PNG&quot; alt=&quot;The language field groups&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub&quot;&gt;It would be quite awesome to overrule specific values like the label.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;At this point I’m starting to think about metadata that should be coming from the breadboard. Metadata should be sent along the flow, providing context where needed. In this case I think I would at least need a group identification so I can keep apart the fields in my template. Speaking of templates, it’s time to add a render node. Again I create a breadboard and I stick a render action to it. To it’s output I add a post modifier that I can use to act upon post data.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/first-render-node.PNG&quot; alt=&quot;The render node&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub&quot;&gt;The render node I deem simple enough to leave out the breadboard title. The filename, icon and P modifier speak for themselves. Having that said, you should be able to add a title to a breadboard at any time.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s wire things up to see what we are getting at.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/wired-product-admin-boards.PNG&quot; alt=&quot;Wired breadboards&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ok, we defined fields, grouped them and I have a template (*Product add edit) that produces post data, handled by the P variable attached to the template output. We use this post data to create or update the product. We need a “save” action, that comes equipped with an if block. That way we have the ability to add output on success and on failure. It know’s failure or success because the stream of data provides context. It has post data related to the model that also resides in the stream. The model has validation, that’s what the outcome is based upon.&lt;/p&gt;
+
+&lt;p&gt;On success we render a new page, telling the content editor everything is fine. Also, we drag two lines back to the model date fields. Depending on if this is a new entry, we need a creation date. And if it’s an update, we need the updated date. This immediately poses some questions. Mainly, is the date updated after the fact? I think not, the connections to the model should only indicate that we also need to generate one of these dates. The system behind the interpretation of this entanglement should be smart enough to know how to act.&lt;/p&gt;
+
+&lt;p&gt;Now, we have a very basic setup on how the data should flow on the administrator side of the application, but we are missing some essential parts. For starters, there’s no routing available. And if we have routing, we need a way of authentication and authorization aswel. So let’s start with that.&lt;/p&gt;
+
+&lt;p&gt;First I would need an entrance point, something representing a user making a request. This is represented by a circle with a cloud. It needs a simple output node. In case of the content editors part, we would need to see if the user is logged in. If so, lead the request straight to the admin routes. Depending on the information in the request it chooses it’s route. Say we were to visit the admin/products route. First we need to fetch the products. This can be done with the products query. We continue to link the route output to the sql input of the products query node. This is a breadboard made up of a SQL action and an IF action. The sql action is responsible for the query. On success it immediately goes on to connect to the render node. Responsible for rendering the products overview template for the administrator view. The query is using an offset and a limit to accommodate for pagination. How can it know? Maybe we should introduce some get variables like this: ?offset=0&amp;amp;limit=25 but I can imagine more elegant ways to do so. This is for a later article where I explore ways to make this entire setup even more elegant. For now this kind of detail only obfuscates the general idea.&lt;/p&gt;
+
+&lt;p&gt;This completes the flow from a request to a certain route, fetching the items and rendering an overview page.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/without-user-and-frontend.PNG&quot; alt=&quot;Completed flow to product admin overview&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;How does it know how we are expecting to return to the admin page you might ask yourself by now? This is because of the route. Every step the flow progresses is aware of the previous steps meaning it’s aware of the route that was requested. Based on that the system knows where to go. This brings up the need for metadata again. The breadboards need a way to know where they belong so to speak. The route and the render node should know they belong to the admin side of things.&lt;/p&gt;
+
+&lt;p&gt;We probably want to know about the logged in user aswell. To do that we have to make a user model.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/user-model.PNG&quot; alt=&quot;User model&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The user model is connected to a query breadboard, fetching the user if not already present. When unable to fetch the user it will redirect to the login page. Otherwise the information is passed to the template aswel. Making available a lot of useful data we can use in our template. I imagine a twig template, that at this point would have access to the products, user and the request. In a pseudo Json form it might look like something like this.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;products&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Lorem Ipsum&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Dolor Sit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;price_euro&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;€200,00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;price_dollar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$224,23&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;YYYY-MM-DDThh:mmTZD&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;user&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Henkie&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;henkie@example.me&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;request&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;admin/product/super-cool/edit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub&quot;&gt;This is much simplified&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;The other routes for the admin part probably start to make sense on their own now. So I leave it for you to see if you can make something of it. We haven’t covered what happends when a user attempts to login but fails. The user may have to create an account. however, I have ideas on how to make that flow more sense using groups like I discussed in the previous article. I will come back to that in the next article. Now it’s enough to discuss an over simplified login flow.&lt;/p&gt;
+
+&lt;p&gt;If the request comes in and finds itself to need a valid user whilst it hasn’t. The user node flows to the User routes. Triggering an action to the login page. The post values are used to query the user table and return to the admin routes on success.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/included-user-flow.PNG&quot; alt=&quot;User login flow&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now! We also need the front-end, for user to browse the products and gaze at their relentless beauty. This flow is much simpler. A lot of what we need is already in place. We have the models and queries already in place. All we need is an extra block with routes. This block is accompanied with a languages block. The languages block has the ability to give output in a variable type of way. Making the {lang} usable in the routes blok. Prefixing the routes with language. I can imagine more elegant ways, to make routes totally dependent on the language. More on that in the next article ;). I think the front-end flow speaks for itself. One thing worth to mention is het product model. I made a modifier that duplicates it’s output nodes. That way you have a way better organize the flow, again preventing too many lines all over the place.&lt;/p&gt;
+
+&lt;p&gt;The menu should be simple, a matter of dragging and dropping stuff on the grid. The inner workings of the breadboard, especially on the ux side needs some thinking still.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/the-menu.PNG&quot; alt=&quot;The menu&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is what the user interface looks like at this point.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/everything.PNG&quot; alt=&quot;Completed flow&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is a pdf file with the design: &lt;a href=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/nodes.pdf&quot;&gt;PDF&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, we still have a lot going on and the risk of making an unintelligible mess is all too prevalent. In fact there still are a lot of open ends to the current status of this concept. I have a lot of ideas that I want to explore in the next article. Hopefully I can gather input that I can use for the refinement needed to make this a potentially powerful method of building logical and working application flows. Thank you!&lt;/p&gt;</content><author><name>Dion</name></author><summary type="html">Part 1 was the introduction to this article. Read it if you like a little more background on the subject. Otherwise just skip it and dive in head first.</summary></entry><entry><title type="html">Flow based user interface for complex structures (part 1)</title><link href="http://localhost:4000/ui/dev/2016/08/11/flow-based-user-interface-for-complex-structures-part-1.html" rel="alternate" type="text/html" title="Flow based user interface for complex structures (part 1)" /><published>2016-08-11T17:07:03+02:00</published><updated>2016-08-11T17:07:03+02:00</updated><id>http://localhost:4000/ui/dev/2016/08/11/flow-based-user-interface-for-complex-structures-part-1</id><content type="html" xml:base="http://localhost:4000/ui/dev/2016/08/11/flow-based-user-interface-for-complex-structures-part-1.html">&lt;p&gt;For quite some time now I have this idea slumbering in the back of my mind. I think it started some years ago when a colleague  of mine, not a developer, said he was certain that coding would become redundant. There would be user interfaces that can create logics like I do with my code at the same level of user friendliness Adobe Photoshop has to offer.&lt;/p&gt;
+
+&lt;p&gt;Listening to that comment from a developers perspective can be somewhat provocative. I mean, coding for input output type of projects, yes, I can see how our work will become redundant. But not by means of a user interface. More in an automated ai or machine learning  type of solution. We became used or even attached to our carefully crafted code. Once you “know” how to code the ease of use argument loses any ground to stand on. In my opinion the entire statement also reveals a fundamental misunderstanding of what coding is. At the very least there is a fundamental misunderstanding about what it solves, and how. And, while I’m already burning down this comment from my well meaning colleague: Frankly, Photoshop isn’t that easy to use!&lt;/p&gt;
+
+&lt;p&gt;To be fair, at the time I was mostly building websites. Some large some small, but nothing exceedingly complicated. A lot of those websites were powered by a content management system. We were using ExpressionEngine most of the time. The entire idea of coding through a UI is nothing new, and in my humble opinion it sucks for anything serious most of the time. There definitely are some interesting attempts that I shouldn’t leave unmentioned: &lt;a href=&quot;http://noflojs.org&quot; title=&quot;NoFlow&quot;&gt;NoFlow&lt;/a&gt;. It even has a Jekyll example &lt;a href=&quot;https://github.com/the-grid/noflo-jekyll&quot;&gt;Jekyll&lt;/a&gt; (this site is running on Jekyll). It looks promising but, if I understand correctly what they are doing it’s an entirely different beast. I have tried such flow diagrams on my drawing board before, but in the context of web development. More specifically in the context of a content managed website. I failed, I kept struggling to keep the resemblance of an ironical pile of spaghetti down to a minimum. I mean, even in the case of a simple input/output type of website there is quite a lot going on. We have a user, this user might have access to some parts of the website and some not. There are cases that should trigger a 404, we might need ways to restrict and validate user input and the list goes on.&lt;/p&gt;
+
+&lt;p&gt;I still think it’s a bad idea to go about coding through flow diagrams. In my opinion it usually adds complexity, while this is exactly what it’s trying to solve. And that for the sake of not having to write code. Really, just learn how to write code instead and you will be better off. But! For the act of configuration, I can definitely see a lot of added value by using a flow diagram type of system. Still, the challenge remains. How not to get a big pile of spaghetti. (spaghetti makes more sense than mud here) So, let me take you through my thought process while trying to tackle this problem.&lt;/p&gt;
+
+&lt;p&gt;First, let me show you some of the examples I have seen in the past. They are coming from 3d and animation software. Some of them contain this type of configuration / logics system for many years already. 3d animation packages have a lot going on. Think of modeling, mapping, animation, material editing, lighting, rendering and whatnot. For animation and materials the node or flow based structures are a really powerful tool to make more complicated structures without the need for coding.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/blender.png&quot; alt=&quot;Blender&quot; title=&quot;Blender&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub&quot;&gt;Blender, an open source 3d animation tool has a really nice implementation.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/blender-grouped.png&quot; alt=&quot;Blender grouped&quot; title=&quot;Blender grouped&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub&quot;&gt;It also contains this awesome idea, grouping. You can make input and output available through connections made to the left and right edges.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/modo.png&quot; alt=&quot;Modo&quot; title=&quot;Modo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub&quot;&gt;Modo, also a 3d animation tool containing a very good implementation.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/modo-modifiers.png&quot; alt=&quot;Modo modifiers&quot; title=&quot;Modo modifiers&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub&quot;&gt;I like the way you can integrate simple logics.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/modo-grouped.png&quot; alt=&quot;Modo grouped&quot; title=&quot;Modo grouped&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub&quot;&gt;Also, with grouping in place.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;There’s a lot of inspiration I can draw from those examples. I see a lot of use for the grouping method, it should really help reducing the messy effect that too many connecting lines have. I would like to add another idea to the table, breadboards. Lately I have been playing around with my Arduino, I bought some components to make an ultrasonic radar. Mostly just for fun. I have the starters kit and it contains a small breadboard.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/arduino-breadboard.jpg&quot; alt=&quot;Arduino Breadboard&quot; title=&quot;Arduino Breadboard&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/arduino-breadboard-2.jpg&quot; alt=&quot;Arduino Breadboard&quot; title=&quot;Arduino Breadboard&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub&quot;&gt;In short, you can connect stuff that’s on the board with resistors and wires&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;It gave me an idea. We need to get simple logics embedded in the node itself by making use of the input and output connections on the node itself. Like this. First, you would drag out a desired size for your breadboard on a grid.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/node-breadboard.png&quot; alt=&quot;Node Breadboard&quot; title=&quot;Node Breadboard&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then, you would drag elements on top of them, snapping to the predefined grid on the board. Let’s drag one out, a numeric value.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/node-breadboard-num.png&quot; alt=&quot;Node Breadboard&quot; title=&quot;Node Breadboard&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Maybe we want to multiply this value before we give output on the node level.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/dionsnoeijen/nodes/node-breadboard-mod.png&quot; alt=&quot;Node Breadboard&quot; title=&quot;Node Breadboard&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The input circle would be able to take a value for the numeric field. That field has output available on the board when the size of the element doesn’t reach the edge. Otherwise it would create an output circle for the node. The node output is created by the multiplication modifier. This is the most basic exemplary use case I can think of. In a real world application this would require a lot more sophistication. But I will get into that in the next article since here’s a lot more to think about from here on. How the interaction should work and how to make use of the breadboards in a meaningful way. For now I will leave it here. In the next part I will explore a fictional project that makes use of the ideas explored here.&lt;/p&gt;
+
+&lt;p&gt;Feel free to leave a comment!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://dionsnoeijen.github.io/ui/dev/2016/09/14/flow-based-user-interface-for-complex-structures-part-2.html&quot; title=&quot;Go to Part 2&quot;&gt;Part 2&lt;/a&gt;&lt;/p&gt;</content><author><name>Dion</name></author><summary type="html">For quite some time now I have this idea slumbering in the back of my mind. I think it started some years ago when a colleague of mine, not a developer, said he was certain that coding would become redundant. There would be user interfaces that can create logics like I do with my code at the same level of user friendliness Adobe Photoshop has to offer. Listening to that comment from a developers perspective can be somewhat provocative. I mean, coding for input output type of projects, yes, I can see how our work will become redundant. But not by means of a user interface. More in an automated ai or machine learning type of solution. We became used or even attached to our carefully crafted code. Once you “know” how to code the ease of use argument loses any ground to stand on. In my opinion the entire statement also reveals a fundamental misunderstanding of what coding is. At the very least there is a fundamental misunderstanding about what it solves, and how. And, while I’m already burning down this comment from my well meaning colleague: Frankly, Photoshop isn’t that easy to use!</summary></entry></feed>
