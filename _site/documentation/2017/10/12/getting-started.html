@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://localhost:4000/documentation/2017/10/12/getting-started.html">
-  <link rel="alternate" type="application/rss+xml" title="Vegan Developer" href="http://localhost:4000/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="SexyField Documentation" href="http://localhost:4000/feed.xml">
 </head>
 
 
@@ -21,7 +21,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/">Vegan Developer</a>
+    <a class="site-title" href="/">SexyField Documentation</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -117,19 +117,22 @@ Hereby a simple docker-compose config that will be sufficient to get started.</p
 </span></code></pre>
 </div>
 
-<p>Let’s use migrations for changes. Also add:</p>
+<p>Let’s use migrations to keep track of changes in the database. Also add:</p>
 
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"doctrine/doctrine-migrations-bundle"</span><span class="err">:</span><span class="w"> </span><span class="s2">"^1.2.1"</span><span class="err">,</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>And run composer update.</p>
 
-<h1 id="step-3-install-the-field-types">Step 3: Install the field types</h1>
+<h1 id="step-3-run-migrations">Step 3: Run migrations</h1>
 
 <div class="info">
-  <p>This will change soon. Probably the fields will be configured automatically, without the need to install them.</p>
+  <p>SexyField configuration is stored in the database, a database scheme is present. For a SexyField doctrine setup the <a href="https://symfony.com/doc/master/bundles/DoctrineMigrationsBundle/index.html" target="_blank">doctrine migrations bundle</a> is recommended.</p>
 </div>
+
+<p>Run: <code class="highlighter-rouge">bin/console doctrine:migrations:diff</code> and <code class="highlighter-rouge">bin/console doctrine:migrations:migrate</code></p>
+
+<h1 id="step-4-install-the-field-types">Step 4: Install the field types</h1>
 
 <p>Execute the following command (just copy / paste):</p>
 
@@ -146,33 +149,32 @@ bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType
 </code></pre>
 </div>
 
+<h1 id="step-5-make-configurations">Step 5: Make configurations.</h1>
+
+<div class="info">
+  <p>In essence, SexyField is data storage agnostic. So configuration is based on how you want your data to be structured in general. You can look at it as in sections that contain fields. Just like a database that has columns, or a form has input fields. Based on this configuration, SexyField can automate several tasks. This particular bundle includes the following to support doctrine:
+<br /><br /></p>
+
+  <p><code class="highlighter-rouge">"tardigrades/sexy-field"</code> This is the base package.</p>
+
+  <p><code class="highlighter-rouge">"tardigrades/sexy-field-api"</code> Provides endpoints based on sections.</p>
+
+  <p><code class="highlighter-rouge">"tardigrades/sexy-field-entity"</code> Contains an entity generator and FieldType entity support.</p>
+
+  <p><code class="highlighter-rouge">"tardigrades/sexy-field-doctrine"</code> Contains a doctrine config generator, a doctrine reader and a writer and FieldType doctrine config support.</p>
+
+  <p><code class="highlighter-rouge">"tardigrades/sexy-field-form"</code> Integrates symfony forms.</p>
+
+  <p><code class="highlighter-rouge">"tardigrades/sexy-field-field-types-base": "dev-master"</code> These are the provided field types.</p>
+</div>
+
+<p>In /app/config/sexy-field there is a folder that should</p>
 
   </div>
 
 </article>
 
 
-        
-        <div id="disqus_thread"></div>
-        <script>
-
-          /**
-           *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-           *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
-          /*
-           var disqus_config = function () {
-           this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-           this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-           };
-           */
-          (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = '//dev-adventures.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-          })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         
       </div>
     </div>

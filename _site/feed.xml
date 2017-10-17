@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-12T14:33:05+02:00</updated><id>http://localhost:4000/</id><title type="html">Vegan Developer</title><subtitle>Dion Snoeijen</subtitle><entry><title type="html">Getting started</title><link href="http://localhost:4000/documentation/2017/10/12/getting-started.html" rel="alternate" type="text/html" title="Getting started" /><published>2017-10-12T12:00:00+02:00</published><updated>2017-10-12T12:00:00+02:00</updated><id>http://localhost:4000/documentation/2017/10/12/getting-started</id><content type="html" xml:base="http://localhost:4000/documentation/2017/10/12/getting-started.html">&lt;p&gt;This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-17T14:04:13+02:00</updated><id>http://localhost:4000/</id><title type="html">SexyField Documentation</title><subtitle>Dion Snoeijen</subtitle><entry><title type="html">Getting started</title><link href="http://localhost:4000/documentation/2017/10/12/getting-started.html" rel="alternate" type="text/html" title="Getting started" /><published>2017-10-12T12:00:00+02:00</published><updated>2017-10-12T12:00:00+02:00</updated><id>http://localhost:4000/documentation/2017/10/12/getting-started</id><content type="html" xml:base="http://localhost:4000/documentation/2017/10/12/getting-started.html">&lt;p&gt;This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.&lt;/p&gt;
 
 &lt;h1 id=&quot;step-1-create-a-symfony-application&quot;&gt;Step 1: Create a &lt;a href=&quot;http://symfony.com/download&quot; target=&quot;_blank&quot;&gt;symfony&lt;/a&gt; application.&lt;/h1&gt;
 
@@ -51,19 +51,22 @@ Hereby a simple docker-compose config that will be sufficient to get started.&lt
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Let’s use migrations for changes. Also add:&lt;/p&gt;
+&lt;p&gt;Let’s use migrations to keep track of changes in the database. Also add:&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;doctrine/doctrine-migrations-bundle&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-
 &lt;p&gt;And run composer update.&lt;/p&gt;
 
-&lt;h1 id=&quot;step-3-install-the-field-types&quot;&gt;Step 3: Install the field types&lt;/h1&gt;
+&lt;h1 id=&quot;step-3-run-migrations&quot;&gt;Step 3: Run migrations&lt;/h1&gt;
 
 &lt;div class=&quot;info&quot;&gt;
-  &lt;p&gt;This will change soon. Probably the fields will be configured automatically, without the need to install them.&lt;/p&gt;
+  &lt;p&gt;SexyField configuration is stored in the database, a database scheme is present. For a SexyField doctrine setup the &lt;a href=&quot;https://symfony.com/doc/master/bundles/DoctrineMigrationsBundle/index.html&quot; target=&quot;_blank&quot;&gt;doctrine migrations bundle&lt;/a&gt; is recommended.&lt;/p&gt;
 &lt;/div&gt;
+
+&lt;p&gt;Run: &lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console doctrine:migrations:diff&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console doctrine:migrations:migrate&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;step-4-install-the-field-types&quot;&gt;Step 4: Install the field types&lt;/h1&gt;
 
 &lt;p&gt;Execute the following command (just copy / paste):&lt;/p&gt;
 
@@ -78,4 +81,25 @@ bin/console sf:install-field-type Tardigrates&lt;span class=&quot;se&quot;&gt;\\
 bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;FieldType&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;TextArea&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;TextArea &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;FieldType&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;TextInput&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;TextInput
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name>Dion Snoeijen</name></author><summary type="html">This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.</summary></entry></feed>
+&lt;/div&gt;
+
+&lt;h1 id=&quot;step-5-make-configurations&quot;&gt;Step 5: Make configurations.&lt;/h1&gt;
+
+&lt;div class=&quot;info&quot;&gt;
+  &lt;p&gt;In essence, SexyField is data storage agnostic. So configuration is based on how you want your data to be structured in general. You can look at it as in sections that contain fields. Just like a database that has columns, or a form has input fields. Based on this configuration, SexyField can automate several tasks. This particular bundle includes the following to support doctrine:
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field&quot;&lt;/code&gt; This is the base package.&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-api&quot;&lt;/code&gt; Provides endpoints based on sections.&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-entity&quot;&lt;/code&gt; Contains an entity generator and FieldType entity support.&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-doctrine&quot;&lt;/code&gt; Contains a doctrine config generator, a doctrine reader and a writer and FieldType doctrine config support.&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-form&quot;&lt;/code&gt; Integrates symfony forms.&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-field-types-base&quot;: &quot;dev-master&quot;&lt;/code&gt; These are the provided field types.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In /app/config/sexy-field there is a folder that should&lt;/p&gt;</content><author><name>Dion Snoeijen</name></author><summary type="html">This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.</summary></entry></feed>

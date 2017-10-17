@@ -48,6 +48,17 @@ div.info {
   border: 1px solid #b5ccac;
   padding: 10px;
   border-radius: 4px;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  pre {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  margin-bottom: 10px;
 }
 
 // Import partials from `sass_dir` (defaults to `_sass`)
