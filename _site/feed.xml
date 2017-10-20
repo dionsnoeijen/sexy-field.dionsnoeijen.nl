@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-20T14:57:16+02:00</updated><id>http://localhost:4000/</id><title type="html">SexyField Documentation</title><subtitle>Dion Snoeijen</subtitle><entry><title type="html">Getting started</title><link href="http://localhost:4000/documentation/2017/10/12/getting-started.html" rel="alternate" type="text/html" title="Getting started" /><published>2017-10-12T12:00:00+02:00</published><updated>2017-10-12T12:00:00+02:00</updated><id>http://localhost:4000/documentation/2017/10/12/getting-started</id><content type="html" xml:base="http://localhost:4000/documentation/2017/10/12/getting-started.html">&lt;p&gt;This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-20T16:03:35+02:00</updated><id>http://localhost:4000/</id><title type="html">SexyField Documentation</title><subtitle>Dion Snoeijen</subtitle><entry><title type="html">Getting started with SexyField</title><link href="http://localhost:4000/documentation/2017/10/12/getting-started.html" rel="alternate" type="text/html" title="Getting started with SexyField" /><published>2017-10-12T12:00:00+02:00</published><updated>2017-10-12T12:00:00+02:00</updated><id>http://localhost:4000/documentation/2017/10/12/getting-started</id><content type="html" xml:base="http://localhost:4000/documentation/2017/10/12/getting-started.html">&lt;p&gt;This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.&lt;/p&gt;
 
 &lt;h1 id=&quot;step-1-create-a-symfony-application&quot;&gt;Step 1: Create a &lt;a href=&quot;http://symfony.com/download&quot; target=&quot;_blank&quot;&gt;symfony&lt;/a&gt; application.&lt;/h1&gt;
 
@@ -99,8 +99,14 @@ bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\
 bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;FieldType&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;TextInput&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;TextInput
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;h1 id=&quot;step-5&quot;&gt;&lt;a href=&quot;#step-5&quot;&gt;Step 5: Make configurations&lt;/a&gt;&lt;/h1&gt;
 
-&lt;h1 id=&quot;step-5-make-configurations&quot;&gt;Step 5: Make configurations&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#language&quot;&gt;Language&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#application&quot;&gt;Application&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#field&quot;&gt;Field&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot;&gt;Section&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;Configurations are done with yml files. At this point we have a couple of different configurations.&lt;/p&gt;
 
@@ -227,9 +233,13 @@ bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\
 
 &lt;/div&gt;
 
-&lt;h4 id=&quot;language&quot;&gt;Language&lt;/h4&gt;
+&lt;h1 id=&quot;language&quot;&gt;&lt;a href=&quot;#language&quot;&gt;Language&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;For section entries, you can have multiple languages.&lt;/p&gt;
+
+&lt;div class=&quot;info&quot;&gt;
+  &lt;p&gt;At this point, language functionality is incomplete, don’t bother too much, just create the languages.&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# app/config/sexy-field/application/language.yml&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;language&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
@@ -241,9 +251,13 @@ bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\
 &lt;p&gt;From the root of your project, run:&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:create-language app/config/sexy-field/application/language.yml&lt;/code&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;application&quot;&gt;Application&lt;/h4&gt;
+&lt;h1 id=&quot;application&quot;&gt;&lt;a href=&quot;#application&quot;&gt;Application&lt;/a&gt;&lt;/h1&gt;
 
-&lt;p&gt;You can have multiple applications that can relate to sections, you can look upon this as a group of sections. (At this point, functionality is incomplete, don’t bother too much, just create the application.&lt;/p&gt;
+&lt;p&gt;You can have multiple applications that can relate to sections, you can look upon this as a group of sections.&lt;/p&gt;
+
+&lt;div class=&quot;info&quot;&gt;
+  &lt;p&gt;At this point, application functionality is incomplete, don’t bother too much, just create the application.&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# app/config/sexy-field/application/application.yml&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
@@ -258,10 +272,71 @@ bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\
 &lt;p&gt;From the root of your project, run:&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:create-application app/config/sexy-field/application/application.yml&lt;/code&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;field&quot;&gt;Field&lt;/h4&gt;
+&lt;h1 id=&quot;field&quot;&gt;&lt;a href=&quot;#field&quot;&gt;Field&lt;/a&gt;&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Sections are created from fields that are based on field types.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;A field can be assigned to multiple sections. For some fields,&lt;/p&gt;</content><author><name>Dion Snoeijen</name></author><summary type="html">This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.</summary></entry></feed>
+&lt;p&gt;A field can be assigned to multiple sections. For some fields this is relevant. Like the updated and created field. It’s recommended to have all sections contain those two fields. Let’s start by creating both.&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# app/config/sexy-field/generic/field/created.yml&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Created&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;created&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;DateTimeField&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;entityEvents&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;prePersist&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Creation date&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# app/config/sexy-field/generic/field/updated.yml&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Updated&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;updated&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;DateTimeField&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;entityEvents&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;prePersist&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;preUpdate&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Update date&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;name: This is the field name that can be displayed for interal, admin users.
+handle: The handle is usually based on the name. It is used to access the field data when in a section.
+type: Refers to the field type that is being configured.&lt;/p&gt;
+
+&lt;div class=&quot;info&quot;&gt;
+  &lt;p&gt;entityEvents will be deprecated soon and change: &lt;a href=&quot;https://github.com/dionsnoeijen/sexy-field/issues/17&quot;&gt;https://github.com/dionsnoeijen/sexy-field/issues/17&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The entity events are telling the entity generator what event generators it should trigger. At this point, this particular field type (DateTimeField) supports two event generators through the &lt;code class=&quot;highlighter-rouge&quot;&gt;sexy-field-entity&lt;/code&gt; package: EntityPrePersistGenerator and EntityPreUpdateGenerator.&lt;/p&gt;
+
+&lt;p&gt;If you add them to the array, like in the example. The entity generator will generate the accompanying event handling methods like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onPrePersist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;vg&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;created&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'now'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;vg&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;updated&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'now'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onPreUpdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;vg&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;updated&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'now'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;form&lt;/code&gt; config, points to how it should render the form.&lt;/p&gt;
+
+&lt;p&gt;It has three groups, in this case only one is used.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;all&lt;/code&gt; For both create and update forms.&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;create&lt;/code&gt; Config that only works for the create form.&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;update&lt;/code&gt; Config that only works for the update form.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;section&quot;&gt;&lt;a href=&quot;#section&quot;&gt;Section&lt;/a&gt;&lt;/h1&gt;</content><author><name>Dion Snoeijen</name></author><summary type="html">This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.</summary></entry></feed>

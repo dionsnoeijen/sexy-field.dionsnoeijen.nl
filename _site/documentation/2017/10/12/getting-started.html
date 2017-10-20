@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Getting started</title>
+  <title>Getting started with SexyField</title>
   <meta name="description" content="This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.">
 
   <link rel="stylesheet" href="/css/main.css">
@@ -59,7 +59,7 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Getting started</h1>
+    <h1 class="post-title" itemprop="name headline">Getting started with SexyField</h1>
     <p class="post-meta"><time datetime="2017-10-12T12:00:00+02:00" itemprop="datePublished">Oct 12, 2017</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Dion Snoeijen</span></span></p>
   </header>
 
@@ -165,8 +165,14 @@ bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType
 bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType<span class="se">\\</span>TextInput<span class="se">\\</span>TextInput
 </code></pre>
 </div>
+<h1 id="step-5"><a href="#step-5">Step 5: Make configurations</a></h1>
 
-<h1 id="step-5-make-configurations">Step 5: Make configurations</h1>
+<ul>
+  <li><a href="#language">Language</a></li>
+  <li><a href="#application">Application</a></li>
+  <li><a href="#field">Field</a></li>
+  <li><a href="#section">Section</a></li>
+</ul>
 
 <p>Configurations are done with yml files. At this point we have a couple of different configurations.</p>
 
@@ -293,9 +299,13 @@ bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType
 
 </div>
 
-<h4 id="language">Language</h4>
+<h1 id="language"><a href="#language">Language</a></h1>
 
 <p>For section entries, you can have multiple languages.</p>
+
+<div class="info">
+  <p>At this point, language functionality is incomplete, don’t bother too much, just create the languages.</p>
+</div>
 
 <div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="c1"># app/config/sexy-field/application/language.yml</span>
 <span class="s">language</span><span class="pi">:</span>
@@ -307,9 +317,13 @@ bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType
 <p>From the root of your project, run:<br />
 <code class="highlighter-rouge">bin/console sf:create-language app/config/sexy-field/application/language.yml</code></p>
 
-<h4 id="application">Application</h4>
+<h1 id="application"><a href="#application">Application</a></h1>
 
-<p>You can have multiple applications that can relate to sections, you can look upon this as a group of sections. (At this point, functionality is incomplete, don’t bother too much, just create the application.</p>
+<p>You can have multiple applications that can relate to sections, you can look upon this as a group of sections.</p>
+
+<div class="info">
+  <p>At this point, application functionality is incomplete, don’t bother too much, just create the application.</p>
+</div>
 
 <div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="c1"># app/config/sexy-field/application/application.yml</span>
 <span class="s">application</span><span class="pi">:</span>
@@ -324,13 +338,74 @@ bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType
 <p>From the root of your project, run:<br />
 <code class="highlighter-rouge">bin/console sf:create-application app/config/sexy-field/application/application.yml</code></p>
 
-<h4 id="field">Field</h4>
+<h1 id="field"><a href="#field">Field</a></h1>
 
 <blockquote>
   <p>Sections are created from fields that are based on field types.</p>
 </blockquote>
 
-<p>A field can be assigned to multiple sections. For some fields,</p>
+<p>A field can be assigned to multiple sections. For some fields this is relevant. Like the updated and created field. It’s recommended to have all sections contain those two fields. Let’s start by creating both.</p>
+
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="c1"># app/config/sexy-field/generic/field/created.yml</span>
+<span class="s">field</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Created</span>
+  <span class="s">handle</span><span class="pi">:</span> <span class="s">created</span>
+  <span class="s">type</span><span class="pi">:</span> <span class="s">DateTimeField</span>
+  <span class="s">entityEvents</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">prePersist</span>
+  <span class="s">form</span><span class="pi">:</span>
+    <span class="s">all</span><span class="pi">:</span>
+      <span class="s">label</span><span class="pi">:</span> <span class="s">Creation date</span>
+</code></pre>
+</div>
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="c1"># app/config/sexy-field/generic/field/updated.yml</span>
+<span class="s">field</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Updated</span>
+  <span class="s">handle</span><span class="pi">:</span> <span class="s">updated</span>
+  <span class="s">type</span><span class="pi">:</span> <span class="s">DateTimeField</span>
+  <span class="s">entityEvents</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">prePersist</span>
+    <span class="pi">-</span> <span class="s">preUpdate</span>
+  <span class="s">form</span><span class="pi">:</span>
+    <span class="s">all</span><span class="pi">:</span>
+      <span class="s">label</span><span class="pi">:</span> <span class="s">Update date</span>
+</code></pre>
+</div>
+
+<p>name: This is the field name that can be displayed for interal, admin users.
+handle: The handle is usually based on the name. It is used to access the field data when in a section.
+type: Refers to the field type that is being configured.</p>
+
+<div class="info">
+  <p>entityEvents will be deprecated soon and change: <a href="https://github.com/dionsnoeijen/sexy-field/issues/17">https://github.com/dionsnoeijen/sexy-field/issues/17</a></p>
+</div>
+
+<p>The entity events are telling the entity generator what event generators it should trigger. At this point, this particular field type (DateTimeField) supports two event generators through the <code class="highlighter-rouge">sexy-field-entity</code> package: EntityPrePersistGenerator and EntityPreUpdateGenerator.</p>
+
+<p>If you add them to the array, like in the example. The entity generator will generate the accompanying event handling methods like this:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="kp">public</span> <span class="n">function</span> <span class="n">onPrePersist</span><span class="p">():</span> <span class="n">void</span>
+<span class="p">{</span>
+    <span class="vg">$this</span><span class="o">-&gt;</span><span class="n">created</span> <span class="o">=</span> <span class="kp">new</span> <span class="p">\</span><span class="no">DateTime</span><span class="p">(</span><span class="s1">'now'</span><span class="p">);</span>
+    <span class="vg">$this</span><span class="o">-&gt;</span><span class="n">updated</span> <span class="o">=</span> <span class="kp">new</span> <span class="p">\</span><span class="no">DateTime</span><span class="p">(</span><span class="s1">'now'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kp">public</span> <span class="n">function</span> <span class="n">onPreUpdate</span><span class="p">():</span> <span class="n">void</span>
+<span class="p">{</span>
+    <span class="vg">$this</span><span class="o">-&gt;</span><span class="n">updated</span> <span class="o">=</span> <span class="kp">new</span> <span class="p">\</span><span class="no">DateTime</span><span class="p">(</span><span class="s1">'now'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">form</code> config, points to how it should render the form.</p>
+
+<p>It has three groups, in this case only one is used.</p>
+
+<p><code class="highlighter-rouge">all</code> For both create and update forms.<br />
+<code class="highlighter-rouge">create</code> Config that only works for the create form.<br />
+<code class="highlighter-rouge">update</code> Config that only works for the update form.<br /></p>
+
+<h1 id="section"><a href="#section">Section</a></h1>
 
   </div>
 

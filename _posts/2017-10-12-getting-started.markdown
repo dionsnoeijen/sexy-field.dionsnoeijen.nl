@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Getting started"
+title:  "Getting started with SexyField"
 date:   2017-10-12 12:00:00 +0200
 categories: documentation
 comments: false
@@ -109,8 +109,12 @@ bin/console sf:install-field-type Tardigrates\\FieldType\\Slug\\Slug \
 bin/console sf:install-field-type Tardigrades\\FieldType\\TextArea\\TextArea \
 bin/console sf:install-field-type Tardigrades\\FieldType\\TextInput\\TextInput
 ```
+<h1 id="step-5"><a href="#step-5">Step 5: Make configurations</a></h1>
 
-# Step 5: Make configurations
+* <a href="#language">Language</a>
+* <a href="#application">Application</a>
+* <a href="#field">Field</a>
+* <a href="#section">Section</a>
 
 Configurations are done with yml files. At this point we have a couple of different configurations.
 
@@ -209,9 +213,13 @@ Application commands<br />
 
 </div>
 
-#### Language
+<h1 id="language"><a href="#language">Language</a></h1>
 
 For section entries, you can have multiple languages.
+
+<div class="info">
+At this point, language functionality is incomplete, don't bother too much, just create the languages.
+</div>
 
 ``` yml
 # app/config/sexy-field/application/language.yml
@@ -223,9 +231,13 @@ language:
 From the root of your project, run:<br />
 `bin/console sf:create-language app/config/sexy-field/application/language.yml`
 
-#### Application
+<h1 id="application"><a href="#application">Application</a></h1>
 
-You can have multiple applications that can relate to sections, you can look upon this as a group of sections. (At this point, functionality is incomplete, don't bother too much, just create the application.
+You can have multiple applications that can relate to sections, you can look upon this as a group of sections.
+
+<div class="info">
+At this point, application functionality is incomplete, don't bother too much, just create the application.
+</div>
 
 ``` yml
 # app/config/sexy-field/application/application.yml
@@ -240,8 +252,69 @@ application:
 From the root of your project, run:<br />
 `bin/console sf:create-application app/config/sexy-field/application/application.yml`
 
-#### Field
+<h1 id="field"><a href="#field">Field</a></h1>
 
 > Sections are created from fields that are based on field types.
 
-A field can be assigned to multiple sections. For some fields,
+A field can be assigned to multiple sections. For some fields this is relevant. Like the updated and created field. It's recommended to have all sections contain those two fields. Let's start by creating both.
+
+``` yml
+# app/config/sexy-field/generic/field/created.yml
+field:
+  name: Created
+  handle: created
+  type: DateTimeField
+  entityEvents:
+    - prePersist
+  form:
+    all:
+      label: Creation date
+```
+``` yml
+# app/config/sexy-field/generic/field/updated.yml
+field:
+  name: Updated
+  handle: updated
+  type: DateTimeField
+  entityEvents:
+    - prePersist
+    - preUpdate
+  form:
+    all:
+      label: Update date
+```
+
+name: This is the field name that can be displayed for interal, admin users.
+handle: The handle is usually based on the name. It is used to access the field data when in a section.
+type: Refers to the field type that is being configured.
+
+<div class="info">
+entityEvents will be deprecated soon and change: [https://github.com/dionsnoeijen/sexy-field/issues/17](https://github.com/dionsnoeijen/sexy-field/issues/17)
+</div>
+
+The entity events are telling the entity generator what event generators it should trigger. At this point, this particular field type (DateTimeField) supports two event generators through the `sexy-field-entity` package: EntityPrePersistGenerator and EntityPreUpdateGenerator.
+
+If you add them to the array, like in the example. The entity generator will generate the accompanying event handling methods like this:
+
+``` ruby
+public function onPrePersist(): void
+{
+    $this->created = new \DateTime('now');
+    $this->updated = new \DateTime('now');
+}
+
+public function onPreUpdate(): void
+{
+    $this->updated = new \DateTime('now');
+}
+```
+
+The `form` config, points to how it should render the form.
+
+It has three groups, in this case only one is used.
+
+`all` For both create and update forms.<br />
+`create` Config that only works for the create form.<br />
+`update` Config that only works for the update form.<br />
+
+<h1 id="section"><a href="#section">Section</a></h1>
