@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-17T14:04:13+02:00</updated><id>http://localhost:4000/</id><title type="html">SexyField Documentation</title><subtitle>Dion Snoeijen</subtitle><entry><title type="html">Getting started</title><link href="http://localhost:4000/documentation/2017/10/12/getting-started.html" rel="alternate" type="text/html" title="Getting started" /><published>2017-10-12T12:00:00+02:00</published><updated>2017-10-12T12:00:00+02:00</updated><id>http://localhost:4000/documentation/2017/10/12/getting-started</id><content type="html" xml:base="http://localhost:4000/documentation/2017/10/12/getting-started.html">&lt;p&gt;This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-20T14:57:16+02:00</updated><id>http://localhost:4000/</id><title type="html">SexyField Documentation</title><subtitle>Dion Snoeijen</subtitle><entry><title type="html">Getting started</title><link href="http://localhost:4000/documentation/2017/10/12/getting-started.html" rel="alternate" type="text/html" title="Getting started" /><published>2017-10-12T12:00:00+02:00</published><updated>2017-10-12T12:00:00+02:00</updated><id>http://localhost:4000/documentation/2017/10/12/getting-started</id><content type="html" xml:base="http://localhost:4000/documentation/2017/10/12/getting-started.html">&lt;p&gt;This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.&lt;/p&gt;
 
 &lt;h1 id=&quot;step-1-create-a-symfony-application&quot;&gt;Step 1: Create a &lt;a href=&quot;http://symfony.com/download&quot; target=&quot;_blank&quot;&gt;symfony&lt;/a&gt; application.&lt;/h1&gt;
 
@@ -51,6 +51,23 @@ Hereby a simple docker-compose config that will be sufficient to get started.&lt
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
+&lt;div class=&quot;info&quot;&gt;
+  &lt;p&gt;In essence, SexyField is data storage agnostic. So configuration is based on how you want your data to be structured in general. You can look at it as in sections that contain fields. Just like a database that has columns, or a form has input fields. Based on this configuration, SexyField can automate several tasks. This particular bundle includes the following to support doctrine:
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field&quot;&lt;/code&gt; This is the base package.&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-api&quot;&lt;/code&gt; Provides endpoints based on sections.&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-entity&quot;&lt;/code&gt; Contains an entity generator and FieldType entity support.&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-doctrine&quot;&lt;/code&gt; Contains a doctrine config generator, a doctrine reader and a writer and FieldType doctrine config support.&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-form&quot;&lt;/code&gt; Integrates symfony forms.&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-field-types-base&quot;: &quot;dev-master&quot;&lt;/code&gt; These are the provided field types.&lt;/p&gt;
+&lt;/div&gt;
+
 &lt;p&gt;Let’s use migrations to keep track of changes in the database. Also add:&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;doctrine/doctrine-migrations-bundle&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -83,23 +100,168 @@ bin/console sf:install-field-type Tardigrades&lt;span class=&quot;se&quot;&gt;\\
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h1 id=&quot;step-5-make-configurations&quot;&gt;Step 5: Make configurations.&lt;/h1&gt;
+&lt;h1 id=&quot;step-5-make-configurations&quot;&gt;Step 5: Make configurations&lt;/h1&gt;
+
+&lt;p&gt;Configurations are done with yml files. At this point we have a couple of different configurations.&lt;/p&gt;
 
 &lt;div class=&quot;info&quot;&gt;
-  &lt;p&gt;In essence, SexyField is data storage agnostic. So configuration is based on how you want your data to be structured in general. You can look at it as in sections that contain fields. Just like a database that has columns, or a form has input fields. Based on this configuration, SexyField can automate several tasks. This particular bundle includes the following to support doctrine:
-&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;p&gt;The resulting folder structure will look like this.&lt;/p&gt;
 
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field&quot;&lt;/code&gt; This is the base package.&lt;/p&gt;
-
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-api&quot;&lt;/code&gt; Provides endpoints based on sections.&lt;/p&gt;
-
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-entity&quot;&lt;/code&gt; Contains an entity generator and FieldType entity support.&lt;/p&gt;
-
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-doctrine&quot;&lt;/code&gt; Contains a doctrine config generator, a doctrine reader and a writer and FieldType doctrine config support.&lt;/p&gt;
-
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-form&quot;&lt;/code&gt; Integrates symfony forms.&lt;/p&gt;
-
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;tardigrades/sexy-field-field-types-base&quot;: &quot;dev-master&quot;&lt;/code&gt; These are the provided field types.&lt;/p&gt;
+  &lt;p&gt;In app/config:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;sexy-field
+      &lt;ul&gt;
+        &lt;li&gt;application
+          &lt;ul&gt;
+            &lt;li&gt;application.yml&lt;/li&gt;
+            &lt;li&gt;language.yml&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;author
+          &lt;ul&gt;
+            &lt;li&gt;field
+              &lt;ul&gt;
+                &lt;li&gt;firstName.yml&lt;/li&gt;
+                &lt;li&gt;infix.yml&lt;/li&gt;
+                &lt;li&gt;lastName.yml&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;author.yml&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;blog
+          &lt;ul&gt;
+            &lt;li&gt;field
+              &lt;ul&gt;
+                &lt;li&gt;title.yml&lt;/li&gt;
+                &lt;li&gt;summary.yml&lt;/li&gt;
+                &lt;li&gt;author.yml&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;blog.yml&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;comment
+          &lt;ul&gt;
+            &lt;li&gt;field
+              &lt;ul&gt;
+                &lt;li&gt;name.yml&lt;/li&gt;
+                &lt;li&gt;email.yml&lt;/li&gt;
+                &lt;li&gt;comment.yml&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;comment.yml&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;generic
+          &lt;ul&gt;
+            &lt;li&gt;field
+              &lt;ul&gt;
+                &lt;li&gt;created.yml&lt;/li&gt;
+                &lt;li&gt;updated.yml&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;p&gt;In /app/config/sexy-field there is a folder that should&lt;/p&gt;</content><author><name>Dion Snoeijen</name></author><summary type="html">This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.</summary></entry></feed>
+&lt;p&gt;There are commands available to apply configurations.&lt;/p&gt;
+
+&lt;div class=&quot;info&quot;&gt;
+  &lt;p&gt;Application commands&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:create-application &amp;lt;path to config yml&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:update-application &amp;lt;path to config yml&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:delete-application (follow dialog)&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:list-application&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;br /&gt;Language commands&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:create-language &amp;lt;path to config yml&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:update-language &amp;lt;path to config yml&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:delete-language (follow dialog)&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/conole sf:list-language&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;br /&gt;Field type commands&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:instal-field-type &amp;lt;namespace&amp;gt; (Escape \ in namespace)&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:update-field-type (follow dialog)&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:delete-field-type (follow dialog)&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:list-field-type&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;br /&gt;Field commands&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:create-field &amp;lt;path to config yml&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:update-field &amp;lt;path to config yml&amp;gt; (follow dialog)&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:delete-field (follow dialog)&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:list-field&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;br /&gt;Section commands&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:create-section &amp;lt;path to config yml&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:update-section &amp;lt;path to config yml&amp;gt; (follow dialog)&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:delete-section (follow dialog)&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:list-section&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:generate-section (follow dialog)&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:restore-section (follow dialog)&lt;/code&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h4 id=&quot;language&quot;&gt;Language&lt;/h4&gt;
+
+&lt;p&gt;For section entries, you can have multiple languages.&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# app/config/sexy-field/application/language.yml&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;language&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nl_NL&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;en_EN&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;From the root of your project, run:&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:create-language app/config/sexy-field/application/language.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;application&quot;&gt;Application&lt;/h4&gt;
+
+&lt;p&gt;You can have multiple applications that can relate to sections, you can look upon this as a group of sections. (At this point, functionality is incomplete, don’t bother too much, just create the application.&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# app/config/sexy-field/application/application.yml&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Blog&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;blog&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;languages&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nl_NL&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;en_EN&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;From the root of your project, run:&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/console sf:create-application app/config/sexy-field/application/application.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;field&quot;&gt;Field&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Sections are created from fields that are based on field types.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A field can be assigned to multiple sections. For some fields,&lt;/p&gt;</content><author><name>Dion Snoeijen</name></author><summary type="html">This is a simple step by step guide to get started with SexyField. We will use it with Symfony. For this guide we will build a simple blog.</summary></entry></feed>

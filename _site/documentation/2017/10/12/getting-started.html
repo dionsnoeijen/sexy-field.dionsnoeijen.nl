@@ -117,6 +117,23 @@ Hereby a simple docker-compose config that will be sufficient to get started.</p
 </span></code></pre>
 </div>
 
+<div class="info">
+  <p>In essence, SexyField is data storage agnostic. So configuration is based on how you want your data to be structured in general. You can look at it as in sections that contain fields. Just like a database that has columns, or a form has input fields. Based on this configuration, SexyField can automate several tasks. This particular bundle includes the following to support doctrine:
+<br /><br /></p>
+
+  <p><code class="highlighter-rouge">"tardigrades/sexy-field"</code> This is the base package.</p>
+
+  <p><code class="highlighter-rouge">"tardigrades/sexy-field-api"</code> Provides endpoints based on sections.</p>
+
+  <p><code class="highlighter-rouge">"tardigrades/sexy-field-entity"</code> Contains an entity generator and FieldType entity support.</p>
+
+  <p><code class="highlighter-rouge">"tardigrades/sexy-field-doctrine"</code> Contains a doctrine config generator, a doctrine reader and a writer and FieldType doctrine config support.</p>
+
+  <p><code class="highlighter-rouge">"tardigrades/sexy-field-form"</code> Integrates symfony forms.</p>
+
+  <p><code class="highlighter-rouge">"tardigrades/sexy-field-field-types-base": "dev-master"</code> These are the provided field types.</p>
+</div>
+
 <p>Let’s use migrations to keep track of changes in the database. Also add:</p>
 
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"doctrine/doctrine-migrations-bundle"</span><span class="err">:</span><span class="w"> </span><span class="s2">"^1.2.1"</span><span class="err">,</span><span class="w">
@@ -149,26 +166,171 @@ bin/console sf:install-field-type Tardigrades<span class="se">\\</span>FieldType
 </code></pre>
 </div>
 
-<h1 id="step-5-make-configurations">Step 5: Make configurations.</h1>
+<h1 id="step-5-make-configurations">Step 5: Make configurations</h1>
+
+<p>Configurations are done with yml files. At this point we have a couple of different configurations.</p>
 
 <div class="info">
-  <p>In essence, SexyField is data storage agnostic. So configuration is based on how you want your data to be structured in general. You can look at it as in sections that contain fields. Just like a database that has columns, or a form has input fields. Based on this configuration, SexyField can automate several tasks. This particular bundle includes the following to support doctrine:
-<br /><br /></p>
+  <p>The resulting folder structure will look like this.</p>
 
-  <p><code class="highlighter-rouge">"tardigrades/sexy-field"</code> This is the base package.</p>
-
-  <p><code class="highlighter-rouge">"tardigrades/sexy-field-api"</code> Provides endpoints based on sections.</p>
-
-  <p><code class="highlighter-rouge">"tardigrades/sexy-field-entity"</code> Contains an entity generator and FieldType entity support.</p>
-
-  <p><code class="highlighter-rouge">"tardigrades/sexy-field-doctrine"</code> Contains a doctrine config generator, a doctrine reader and a writer and FieldType doctrine config support.</p>
-
-  <p><code class="highlighter-rouge">"tardigrades/sexy-field-form"</code> Integrates symfony forms.</p>
-
-  <p><code class="highlighter-rouge">"tardigrades/sexy-field-field-types-base": "dev-master"</code> These are the provided field types.</p>
+  <p>In app/config:</p>
+  <ul>
+    <li>sexy-field
+      <ul>
+        <li>application
+          <ul>
+            <li>application.yml</li>
+            <li>language.yml</li>
+          </ul>
+        </li>
+        <li>author
+          <ul>
+            <li>field
+              <ul>
+                <li>firstName.yml</li>
+                <li>infix.yml</li>
+                <li>lastName.yml</li>
+              </ul>
+            </li>
+            <li>author.yml</li>
+          </ul>
+        </li>
+        <li>blog
+          <ul>
+            <li>field
+              <ul>
+                <li>title.yml</li>
+                <li>summary.yml</li>
+                <li>author.yml</li>
+              </ul>
+            </li>
+            <li>blog.yml</li>
+          </ul>
+        </li>
+        <li>comment
+          <ul>
+            <li>field
+              <ul>
+                <li>name.yml</li>
+                <li>email.yml</li>
+                <li>comment.yml</li>
+              </ul>
+            </li>
+            <li>comment.yml</li>
+          </ul>
+        </li>
+        <li>generic
+          <ul>
+            <li>field
+              <ul>
+                <li>created.yml</li>
+                <li>updated.yml</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 
-<p>In /app/config/sexy-field there is a folder that should</p>
+<p>There are commands available to apply configurations.</p>
+
+<div class="info">
+  <p>Application commands<br /></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:create-application &lt;path to config yml&gt;</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:update-application &lt;path to config yml&gt;</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:delete-application (follow dialog)</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:list-application</code></p>
+
+  <p><br />Language commands<br /></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:create-language &lt;path to config yml&gt;</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:update-language &lt;path to config yml&gt;</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:delete-language (follow dialog)</code></p>
+
+  <p><code class="highlighter-rouge">bin/conole sf:list-language</code></p>
+
+  <p><br />Field type commands<br /></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:instal-field-type &lt;namespace&gt; (Escape \ in namespace)</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:update-field-type (follow dialog)</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:delete-field-type (follow dialog)</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:list-field-type</code></p>
+
+  <p><br />Field commands<br /></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:create-field &lt;path to config yml&gt;</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:update-field &lt;path to config yml&gt; (follow dialog)</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:delete-field (follow dialog)</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:list-field</code></p>
+
+  <p><br />Section commands<br /></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:create-section &lt;path to config yml&gt;</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:update-section &lt;path to config yml&gt; (follow dialog)</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:delete-section (follow dialog)</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:list-section</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:generate-section (follow dialog)</code></p>
+
+  <p><code class="highlighter-rouge">bin/console sf:restore-section (follow dialog)</code></p>
+
+</div>
+
+<h4 id="language">Language</h4>
+
+<p>For section entries, you can have multiple languages.</p>
+
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="c1"># app/config/sexy-field/application/language.yml</span>
+<span class="s">language</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">nl_NL</span>
+  <span class="pi">-</span> <span class="s">en_EN</span>
+</code></pre>
+</div>
+
+<p>From the root of your project, run:<br />
+<code class="highlighter-rouge">bin/console sf:create-language app/config/sexy-field/application/language.yml</code></p>
+
+<h4 id="application">Application</h4>
+
+<p>You can have multiple applications that can relate to sections, you can look upon this as a group of sections. (At this point, functionality is incomplete, don’t bother too much, just create the application.</p>
+
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="c1"># app/config/sexy-field/application/application.yml</span>
+<span class="s">application</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Blog</span>
+  <span class="s">handle</span><span class="pi">:</span> <span class="s">blog</span>
+  <span class="s">languages</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">nl_NL</span>
+    <span class="pi">-</span> <span class="s">en_EN</span>
+</code></pre>
+</div>
+
+<p>From the root of your project, run:<br />
+<code class="highlighter-rouge">bin/console sf:create-application app/config/sexy-field/application/application.yml</code></p>
+
+<h4 id="field">Field</h4>
+
+<blockquote>
+  <p>Sections are created from fields that are based on field types.</p>
+</blockquote>
+
+<p>A field can be assigned to multiple sections. For some fields,</p>
 
   </div>
 

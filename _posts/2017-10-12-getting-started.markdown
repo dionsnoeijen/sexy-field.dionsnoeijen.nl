@@ -61,6 +61,23 @@ Add the sexy-field-bundle dependency to "require".
 "tardigrades/sexy-field-bundle": "dev-master",
 ```
 
+<div class="info">
+In essence, SexyField is data storage agnostic. So configuration is based on how you want your data to be structured in general. You can look at it as in sections that contain fields. Just like a database that has columns, or a form has input fields. Based on this configuration, SexyField can automate several tasks. This particular bundle includes the following to support doctrine:
+<br /><br />
+
+`"tardigrades/sexy-field"` This is the base package.
+
+`"tardigrades/sexy-field-api"` Provides endpoints based on sections.
+
+`"tardigrades/sexy-field-entity"` Contains an entity generator and FieldType entity support.
+
+`"tardigrades/sexy-field-doctrine"` Contains a doctrine config generator, a doctrine reader and a writer and FieldType doctrine config support.
+
+`"tardigrades/sexy-field-form"` Integrates symfony forms.
+
+`"tardigrades/sexy-field-field-types-base": "dev-master"` These are the provided field types.
+</div>
+
 Let's use migrations to keep track of changes in the database. Also add:
 
 ``` json
@@ -93,23 +110,138 @@ bin/console sf:install-field-type Tardigrades\\FieldType\\TextArea\\TextArea \
 bin/console sf:install-field-type Tardigrades\\FieldType\\TextInput\\TextInput
 ```
 
-# Step 5: Make configurations.
+# Step 5: Make configurations
+
+Configurations are done with yml files. At this point we have a couple of different configurations.
 
 <div class="info">
-In essence, SexyField is data storage agnostic. So configuration is based on how you want your data to be structured in general. You can look at it as in sections that contain fields. Just like a database that has columns, or a form has input fields. Based on this configuration, SexyField can automate several tasks. This particular bundle includes the following to support doctrine:
-<br /><br />
+The resulting folder structure will look like this.
 
-`"tardigrades/sexy-field"` This is the base package.
-
-`"tardigrades/sexy-field-api"` Provides endpoints based on sections.
-
-`"tardigrades/sexy-field-entity"` Contains an entity generator and FieldType entity support.
-
-`"tardigrades/sexy-field-doctrine"` Contains a doctrine config generator, a doctrine reader and a writer and FieldType doctrine config support.
-
-`"tardigrades/sexy-field-form"` Integrates symfony forms.
-
-`"tardigrades/sexy-field-field-types-base": "dev-master"` These are the provided field types.
+In app/config:
+* sexy-field
+  * application
+    * application.yml
+    * language.yml
+  * author
+    * field
+      * firstName.yml
+      * infix.yml
+      * lastName.yml
+    * author.yml
+  * blog
+    * field
+      * title.yml
+      * summary.yml
+      * author.yml
+    * blog.yml
+  * comment
+    * field
+      * name.yml
+      * email.yml
+      * comment.yml
+    * comment.yml
+  * generic
+    * field
+      * created.yml
+      * updated.yml
 </div>
 
-In /app/config/sexy-field there is a folder that should
+There are commands available to apply configurations.
+
+<div class="info">
+Application commands<br />
+
+`bin/console sf:create-application <path to config yml>`
+
+`bin/console sf:update-application <path to config yml>`
+
+`bin/console sf:delete-application (follow dialog)`
+
+`bin/console sf:list-application`
+
+
+<br />Language commands<br />
+
+`bin/console sf:create-language <path to config yml>`
+
+`bin/console sf:update-language <path to config yml>`
+
+`bin/console sf:delete-language (follow dialog)`
+
+`bin/conole sf:list-language`
+
+
+<br />Field type commands<br />
+
+`bin/console sf:instal-field-type <namespace> (Escape \ in namespace)`
+
+`bin/console sf:update-field-type (follow dialog)`
+
+`bin/console sf:delete-field-type (follow dialog)`
+
+`bin/console sf:list-field-type`
+
+
+<br />Field commands<br />
+
+`bin/console sf:create-field <path to config yml>`
+
+`bin/console sf:update-field <path to config yml> (follow dialog)`
+
+`bin/console sf:delete-field (follow dialog)`
+
+`bin/console sf:list-field`
+
+
+<br />Section commands<br />
+
+`bin/console sf:create-section <path to config yml>`
+
+`bin/console sf:update-section <path to config yml> (follow dialog)`
+
+`bin/console sf:delete-section (follow dialog)`
+
+`bin/console sf:list-section`
+
+`bin/console sf:generate-section (follow dialog)`
+
+`bin/console sf:restore-section (follow dialog)`
+
+</div>
+
+#### Language
+
+For section entries, you can have multiple languages.
+
+``` yml
+# app/config/sexy-field/application/language.yml
+language:
+  - nl_NL
+  - en_EN
+```
+
+From the root of your project, run:<br />
+`bin/console sf:create-language app/config/sexy-field/application/language.yml`
+
+#### Application
+
+You can have multiple applications that can relate to sections, you can look upon this as a group of sections. (At this point, functionality is incomplete, don't bother too much, just create the application.
+
+``` yml
+# app/config/sexy-field/application/application.yml
+application:
+  name: Blog
+  handle: blog
+  languages:
+    - nl_NL
+    - en_EN
+```
+
+From the root of your project, run:<br />
+`bin/console sf:create-application app/config/sexy-field/application/application.yml`
+
+#### Field
+
+> Sections are created from fields that are based on field types.
+
+A field can be assigned to multiple sections. For some fields,
