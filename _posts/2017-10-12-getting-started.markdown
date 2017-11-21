@@ -317,4 +317,88 @@ It has three groups, in this case only one is used.
 `create` Config that only works for the create form.<br />
 `update` Config that only works for the update form.<br />
 
+The options that can be used in the `form` config are the options Symfony provides.
+See [https://symfony.com/doc/current/reference/forms/types/form.html](https://symfony.com/doc/current/reference/forms/types/form.html)
+
+Another, more complicated, example of a field config would be the following:
+```yml
+field:
+  name: Name
+  handle: name
+  type: TextInput
+  form:
+    all:
+      trim: true
+      label: Name
+    update:
+      disabled: false
+  generator:
+    entity:
+      validator:
+        Length:
+          min: 2
+          max: 255
+        NotBlank: ~
+    doctrine:
+      length: 255
+```
+
+As you can see, it has also a `generator` part. Here you can configure the generators that you choose for your project.
+In this case an entity generator and a doctrine generator.
+
+
+The `entity` config has validator options. These are the options Symfony provides as constraints.
+See [https://symfony.com/doc/current/validation.html#constraints](https://symfony.com/doc/current/validation.html#constraints) for more information.
+
+And in a similar way, the `doctrine` config follows the options Doctrine provides: [http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/basic-mapping.html#property-mapping](http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/basic-mapping.html#property-mapping)
+
+In order to create a field in the database you have to run the following command:
+From the root of your project, run:<br />
+`bin/console sf:create-field app/config/sexy-field/generic/field/created.yml`
+
+
 <h1 id="section"><a href="#section">Section</a></h1>
+
+An example of a section config would be the following:
+
+```yml
+section:
+  name: Person
+  handle: person
+  fields:
+    - firstName
+    - infix
+    - lastName
+    - email
+    - personSlug
+    - created
+    - updated
+  slug: personSlug
+  created: created
+  updated: updated
+  default: email
+  namespace: AppBundle
+  generator:
+    entity:
+      email:
+        NotBlank: ~
+```
+
+The value of `slug` should be the slug field that you have configured in the `fields` part.
+The value of `default` is the field that will be used as default field when querying the entity. 
+In this case the default field is `email`, so in situations when the Peron entity is represented by a single field, that will be the `email` field.
+
+The `generator` part is where you can configure the generators that you have for your project. 
+In the above example the settings for the email field override the settings you configured in the Email field itself.
+Fields can be reused by different sections. Therefor this option allows sections to use these fields in a different way.
+
+In order to create a section in the database you have to run the following command:
+From the root of your project, run:<br />
+`bin/console sf:create-section app/config/sexy-field/person/person.yml`
+
+<h1 id="updating"><a href="#updating">Updating config files</a></h1>
+
+If at any time you need to update your config files, you can run:
+`bin/console sf:update-<section or field etc> <path to config file>`
+
+This will make the necessary changes in the database.
