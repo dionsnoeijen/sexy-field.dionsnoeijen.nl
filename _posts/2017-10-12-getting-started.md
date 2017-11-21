@@ -336,7 +336,7 @@ It has three groups, in this case only one (all) is used.
 
 The create or update config is merged with the all config before the form is rendered.
 
-Now we can start creating the remaining fields. Let's start witht the fields for the author.
+Now we can start creating the remaining fields. Let's start with the fields for the author.
 
 ``` yml
 # app/config/sexy-field/author/field/authorFirstName.yml
@@ -375,32 +375,8 @@ metadata:
 The options that can be used in the `form` config are the options Symfony provides.
 See [https://symfony.com/doc/current/reference/forms/types/form.html](https://symfony.com/doc/current/reference/forms/types/form.html)
 
-Another, more complicated, example of a field config would be the following:
-```yml
-field:
-  name: Name
-  handle: name
-  type: TextInput
-  form:
-    all:
-      trim: true
-      label: Name
-    update:
-      disabled: false
-  generator:
-    entity:
-      validator:
-        Length:
-          min: 2
-          max: 255
-        NotBlank: ~
-    doctrine:
-      length: 255
-```
-
 As you can see, it has also a `generator` part. Here you can configure the generators that you choose for your project.
 In this case an entity generator and a doctrine generator.
-
 
 The `entity` config has validator options. These are the options Symfony provides as constraints.
 See [https://symfony.com/doc/current/validation.html#constraints](https://symfony.com/doc/current/validation.html#constraints) for more information.
@@ -413,10 +389,6 @@ From the root of your project, run:<br />
 
 
 <h1 id="section"><a href="#section">Section</a></h1>
-
-<div class="info">
-
-</div>
 
 An example of a section config would be the following:
 
@@ -461,3 +433,8 @@ If at any time you need to update your config files, you can run:
 `bin/console sf:update-<section or field etc> <path to config file>`
 
 This will make the necessary changes in the database.
+
+<div class="info">
+
+</div>
+
