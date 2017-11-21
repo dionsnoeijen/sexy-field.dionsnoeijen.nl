@@ -104,8 +104,8 @@ bin/console sf:install-field-type Tardigrades\\FieldType\\Email\\Email \
 bin/console sf:install-field-type Tardigrades\\FieldType\\Integer\\Integer \
 bin/console sf:install-field-type Tardigrades\\FieldType\\Number\\Number \
 bin/console sf:install-field-type Tardigrades\\FieldType\\Relationship\\Relationship \
-bin/console sf:install-field-type Tardigrates\\FieldType\\RichTextArea\\RichTextArea \
-bin/console sf:install-field-type Tardigrates\\FieldType\\Slug\\Slug \
+bin/console sf:install-field-type Tardigrades\\FieldType\\RichTextArea\\RichTextArea \
+bin/console sf:install-field-type Tardigrades\\FieldType\\Slug\\Slug \
 bin/console sf:install-field-type Tardigrades\\FieldType\\TextArea\\TextArea \
 bin/console sf:install-field-type Tardigrades\\FieldType\\TextInput\\TextInput
 ```
