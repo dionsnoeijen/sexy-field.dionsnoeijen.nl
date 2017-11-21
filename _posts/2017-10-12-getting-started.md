@@ -285,11 +285,28 @@ field:
 ```
 
 name: This is the field name that can be displayed for interal, admin users.
-handle: The handle is usually based on the name. It is used to access the field data when in a section.
+handle: The handle is usually based on the name. It is used to access the field.
 type: Refers to the field type that is being configured.
 
 <div class="info">
-entityEvents will be deprecated soon and change: [https://github.com/dionsnoeijen/sexy-field/issues/17](https://github.com/dionsnoeijen/sexy-field/issues/17)
+entityEvents will be deprecated soon and change to this: 
+
+``` yml
+field:
+  name: Created
+  handle: created
+  type: DateTimeField
+  generator:
+    entity:
+      events:
+        - prePersist
+  form:
+    all:
+      label: Creation date
+```
+
+[https://github.com/dionsnoeijen/sexy-field/issues/17](https://github.com/dionsnoeijen/sexy-field/issues/17)
+
 </div>
 
 The entity events are telling the entity generator what event generators it should trigger. At this point, this particular field type (DateTimeField) supports two event generators through the `sexy-field-entity` package: EntityPrePersistGenerator and EntityPreUpdateGenerator.
@@ -311,11 +328,49 @@ public function onPreUpdate(): void
 
 The `form` config, points to how it should render the form.
 
-It has three groups, in this case only one is used.
+It has three groups, in this case only one (all) is used.
 
 `all` For both create and update forms.<br />
-`create` Config that only works for the create form.<br />
-`update` Config that only works for the update form.<br />
+`create` Config that is for the create form.<br />
+`update` Config that is for the update form.<br />
+
+The create or update config is merged with the all config before the form is rendered.
+
+Now we can start creating the remaining fields. Let's start witht the fields for the author.
+
+``` yml
+# app/config/sexy-field/author/field/authorFirstName.yml
+field:
+  name: First name
+  label: First name
+  handle: authorFirstName
+  type: TextInput
+  form:
+    all:
+      trim: true
+    update:
+      disabled: true
+  generator:
+    entity:
+      validator:
+        Length:
+          min: 2
+          max: 255
+    doctrine:
+      length: 255
+``` 
+
+<div class="info">
+You can add metadata to any field config by adding the metadata: key.
+
+``` yml
+metadata:
+  you: can
+  add: metadata
+  as: much
+  asyou: like
+```
+</div>
 
 The options that can be used in the `form` config are the options Symfony provides.
 See [https://symfony.com/doc/current/reference/forms/types/form.html](https://symfony.com/doc/current/reference/forms/types/form.html)
@@ -358,6 +413,10 @@ From the root of your project, run:<br />
 
 
 <h1 id="section"><a href="#section">Section</a></h1>
+
+<div class="info">
+
+</div>
 
 An example of a section config would be the following:
 
